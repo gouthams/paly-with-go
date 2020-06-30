@@ -8,14 +8,16 @@ Event utils has two simple functions:
 
 Example: 
 Input Jsons:
+```
 {"event":"jump", "time":100}
 {"event":"run", "time":75}
 {"event":"jump", "time":1500}
-
+```
 Output Json:
+```
 {"event":"jump", "avg":1600}
 {"event":"run", "avg":75}
-    
+```    
 ## Assumptions:
 
 1) Events are treated in a case insensitive manner
