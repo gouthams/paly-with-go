@@ -56,7 +56,7 @@ To execute the unit test with mutex profiler via interactive shell, do the follo
 ```shell script
 cd events
 go test -mutexprofile=mutex.out
-go tool pprof Events.test mutex.out
+go tool pprof events.test mutex.out
 top5
 quit
 ```
@@ -66,7 +66,7 @@ For assertion in unit test, this library is used https://github.com/stretchr/tes
 This go module dependency should be resolved during the build time.  
 
 Executing unit test could be longer in few systems. 
-Especially TestPublishEventsMultipleEntryConcurrentAndParallel test uses maximum available logical cores
+Especially TestPublishEventMultipleEntryConcurrentAndParallel test uses maximum available logical cores
 to run the 2 million concurrent adds and a million concurrent get stats.
 
 It takes about 30 seconds to run the tests on 12 logical core machine with 2.6 GHz 6-Core Intel Core i7 CPU.
