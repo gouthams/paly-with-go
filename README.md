@@ -41,20 +41,20 @@ go run example.go
 
 To execute unit tests, do the following
 ```shell script
-cd Events
+cd events
 go test
 ```
 
 To execute the unit test with the coverage profile, do the following
 ```shell script
-cd Events
+cd events
 go test -coverprofile cp.out
 go tool cover -html=cp.out
 ```
 
 To execute the unit test with mutex profiler via interactive shell, do the following
 ```shell script
-cd Events
+cd events
 go test -mutexprofile=mutex.out
 go tool pprof Events.test mutex.out
 top5
