@@ -5,6 +5,16 @@ and also to test its efficiency.
 Event utils has two simple functions:
 1) PublishEvent - Accepts a json serialized string and keeps track of the average time for each distinct event.
 2) GetStatistics - Returns an array of serialized jsons added using the the above PublishEvent function.
+
+Example: 
+Input Jsons:
+{"event":"jump", "time":100}
+{"event":"run", "time":75}
+{"event":"jump", "time":1500}
+
+Output Json:
+{"event":"jump", "avg":1600}
+{"event":"run", "avg":75}
     
 ## Assumptions:
 
@@ -23,6 +33,9 @@ Event utils has two simple functions:
    An example third party logrus logger could be used https://github.com/Sirupsen/logrus
 
 4) Unit test leverages max logical CPUs to run tests simultaneously for a large data set operation. 
+
+5) Json output are not in insertion order. Each event could be randomly arranged since the underlying map is does not
+ preserve insertion order.
 
 ### Install and Build
 Requires Golang installed. Please follow the instruction from here https://golang.org/doc/install
