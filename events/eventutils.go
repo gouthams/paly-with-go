@@ -45,6 +45,8 @@ func (e Event) PublishEvent(input string) error {
 		return validationError
 	}
 
+	//Redundant call with overhead of another go-routine (processChannel)
+	//But this will be helpful to bulk process the event in single json. Over-head will be negligible for those cases.
 	//Use a boolean channel as a locking mechanism to avoid race condition on write data.
 	//This channel is used to wait till a signal is sent back from the go-routine when it completes.
 	//NOTE: Here the unbuffered boolean channel is uses as a synchronous block only to process the writes on the map.
